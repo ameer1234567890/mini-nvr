@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk update && apk upgrade && apk add --no-cache ffmpeg
+RUN apk update && apk upgrade && apk add --no-cache ffmpeg && rm -rf /var/cache/apk/*
 
 WORKDIR /data
 
