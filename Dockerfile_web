@@ -1,8 +1,14 @@
-FROM php:apache
+FROM alpine:latest
 
-WORKDIR /
+RUN apk add --no-cache apache2 php-apache2 php-common && rm -rf /var/cache/apk/*
 
-COPY ./htdocs /var/www/html
+RUN mkdir -p /run/apache2
+
+WORKDIR /var/www/localhost/htdocs
+
+COPY ./htdocs /var/www/localhost/htdocs
 COPY ./apache2.conf /etc/apache2/apache2.conf
 
 EXPOSE 80
+
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
