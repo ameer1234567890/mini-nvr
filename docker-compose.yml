@@ -1,56 +1,39 @@
 version: "3"
 
 services:
-  cctv_recorder_cam1:
-    container_name: cctv-recorder-cam1
-    build:
-      context: .
-      dockerfile: Dockerfile_recorder
+  mini_nvr_recorder_cam1:
+    container_name: mini-nvr-recorder-cam1
+    image: ameer1234567890/mini-nvr-recorder
     environment:
-      - TZ=Europe/Brussels
-      - "NP_CCTV_URL=rtsp://user:password@address:554/sub-path"
+      - TZ=Asia/Karachi
+      - "NP_CCTV_URL=rtsp://rtsp:12345678@babycam.lan:554/av_stream/ch0"
     volumes:
-      - ./recordings/cam1:/data
+      - /mnt/usb3/docker/mini-nvr/recordings/cam1:/data
     restart: unless-stopped
-  
-  cctv_recorder_cam2:
-    container_name: cctv-recorder-cam2
-    build:
-      context: .
-      dockerfile: Dockerfile_recorder
+
+  mini_nvr_cleaner:
+    container_name: mini-nvr-cleaner
+    image: ameer1234567890/mini-nvr-cleaner
     environment:
-      - TZ=Europe/Brussels
-      - "NP_CCTV_URL=rtsp://user:password@address:554"
+      - TZ=Asia/Karachi
+      - "NP_MAX_FILE_AGE_HOURS=168"
     volumes:
-      - ./recordings/cam2:/data
+      - /mnt/usb3/docker/mini-nvr/recordings:/data
+      - /mnt/usb3/docker/mini-nvr/cleaner.py:/app/app.py:ro
     restart: unless-stopped
-  
-  cctv_cleaner:
-    container_name: cctv-cleaner
-    build:
-      context: .
-      dockerfile: Dockerfile_cleaner
-    environment:
-      - TZ=Europe/Brussels
-      - "NP_MAX_FILE_AGE_HOURS=72"
-    volumes:
-      - ./recordings:/data
-      - ./cleaner.py:/app/app.py:ro
-    restart: unless-stopped
-  
-  cctv_web:
-    container_name: cctv-web
+
+  mini_nvr_web:
+    container_name: mini-nvr-web
     image: php:apache
     ports:
       - 26880:80
     environment:
-      - "NP_CAM_cam1=Camera #1"
-      - "NP_CAM_cam2=Camera #2"
-      - "NP_TITLE=NibblePoker's Mini CCTV NVR"
-      - "NP_FOOTER=Made by <i>BOZET Herwin</i>"
-      - TZ=Europe/Brussels
+      - "NP_CAM_cam1=BabyCam HD"
+      - "NP_TITLE=Mini NVR"
+      - "NP_FOOTER=Originally made by <i>BOZET Herwin</i> & improved by <i>Ameer Dawood</i>"
+      - TZ=Asia/Karachi
     volumes:
-      - ./htdocs:/var/www/html  # Cannot be "ro" since the recordings are mounted into it.
-      - ./apache2.conf:/etc/apache2/apache2.conf:ro
-      - ./recordings:/var/www/html/data:ro
+      - /mnt/usb3/docker/mini-nvr/htdocs:/var/www/html
+      - /mnt/usb3/docker/mini-nvr/apache2.conf:/etc/apache2/apache2.conf:ro
+      - /mnt/usb3/docker/mini-nvr/recordings:/var/www/html/data:ro
     restart: unless-stopped
