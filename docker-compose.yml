@@ -23,7 +23,7 @@ services:
 
   mini_nvr_web:
     container_name: mini-nvr-web
-    image: php:apache
+    image: ameer1234567890/mini-nvr-web:latest
     ports:
       - 26880:80
     environment:
@@ -32,7 +32,5 @@ services:
       - NP_FOOTER=Originally made by <i>BOZET Herwin</i> & improved by <i>Ameer Dawood</i>
       - TZ=Asia/Karachi
     volumes:
-      - /mnt/usb3/docker/mini-nvr/htdocs:/var/www/html
-      - /mnt/usb3/docker/mini-nvr/apache2.conf:/etc/apache2/apache2.conf:ro
       - /mnt/usb3/docker/mini-nvr/recordings:/var/www/html/data:ro
     restart: unless-stopped

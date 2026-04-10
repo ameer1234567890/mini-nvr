@@ -1,0 +1,8 @@
+FROM php:apache
+
+WORKDIR /
+
+COPY ./htdocs /var/www/html
+COPY ./apache2.conf /etc/apache2/apache2.conf
+
+CMD ["python", "-u", "/app/app.py"]
