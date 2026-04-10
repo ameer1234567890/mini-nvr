@@ -106,8 +106,7 @@ function sizeFormat($bytes) {
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport"
-		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title><?php echo($pageTitle); ?></title>
 	<link rel="stylesheet" href="/css/simplette.all.min.css">
@@ -189,16 +188,36 @@ function sizeFormat($bytes) {
 		echo("<br>");
 		echo("<input type=\"range\" id=\"video-selector\" min=\"0\" max=\"" . count($files) . "\" value=\"0\">");
 		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
 		echo("<p id=\"skippers\">");
 		echo("<a id=\"skip-minus-25\">&lt;&lt;&lt;&lt; 25</a>");
 		echo("<a id=\"skip-minus-10\">&lt;&lt;&lt; 10</a>");
 		echo("<a id=\"skip-minus-5\">&lt;&lt; 5</a>");
 		echo("<a id=\"skip-minus-1\">&lt; 1</a>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
 		echo("<a id=\"skip-plus-1\">1 &gt;</a>");
 		echo("<a id=\"skip-plus-5\">5 &gt;&gt;</a>");
 		echo("<a id=\"skip-plus-10\">10 &gt;&gt;&gt;</a>");
 		echo("<a id=\"skip-plus-25\">25 &gt;&gt;&gt;&gt;</a>");
 		echo("</p>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
+		echo("<br>");
 		echo("<br>");
 		echo("<p>File: <a id=\"url-video\" href=\"#\">Non définis</a> (<span id=\"vid-count-current\">0</span>/<span id=\"vid-count-total\">0</span>)</p>");
 		echo("</center>");
