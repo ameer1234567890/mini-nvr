@@ -39,8 +39,8 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v5
-        file: Dockerfile_recorder
         with:
+          file: ./Dockerfile_recorder
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ github.event.inputs.tags || steps.meta.outputs.tags }}
@@ -72,8 +72,8 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v5
-        file: Dockerfile_cleaner
         with:
+          file: ./Dockerfile_cleaner
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ github.event.inputs.tags || steps.meta.outputs.tags }}
