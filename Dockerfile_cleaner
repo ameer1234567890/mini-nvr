@@ -1,7 +1,5 @@
 FROM python:3-alpine
 
-RUN apk update && apk upgrade
-
 WORKDIR /app
 
 COPY ./cleaner.py /app/app.py
