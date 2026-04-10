@@ -3,7 +3,7 @@ version: "3"
 services:
   mini_nvr_recorder_cam1:
     container_name: mini-nvr-recorder-cam1
-    image: ameer1234567890/mini-nvr-recorder
+    image: ameer1234567890/mini-nvr-recorder:latest
     environment:
       - TZ=Asia/Karachi
       - "NP_CCTV_URL=rtsp://rtsp:12345678@babycam.lan:554/av_stream/ch0"
@@ -13,7 +13,7 @@ services:
 
   mini_nvr_cleaner:
     container_name: mini-nvr-cleaner
-    image: ameer1234567890/mini-nvr-cleaner
+    image: ameer1234567890/mini-nvr-cleaner:latest
     environment:
       - TZ=Asia/Karachi
       - "NP_MAX_FILE_AGE_HOURS=168"
