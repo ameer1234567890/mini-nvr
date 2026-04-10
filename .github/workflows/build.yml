@@ -38,7 +38,11 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
+<<<<<<< HEAD
         uses: docker/build-push-action@v5
+=======
+        uses: docker/build-push-action@v7
+>>>>>>> 1d24f09d17373e272a33ce1e1e57b2f51c8eae61
         with:
           file: ./Dockerfile_recorder
           platforms: linux/amd64,linux/arm64
@@ -71,7 +75,11 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
+<<<<<<< HEAD
         uses: docker/build-push-action@v5
+=======
+        uses: docker/build-push-action@v7
+>>>>>>> 1d24f09d17373e272a33ce1e1e57b2f51c8eae61
         with:
           file: ./Dockerfile_cleaner
           platforms: linux/amd64,linux/arm64
