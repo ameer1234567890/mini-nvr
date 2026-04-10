@@ -19,7 +19,6 @@ services:
       - NP_MAX_FILE_AGE_HOURS=168
     volumes:
       - /mnt/usb3/docker/mini-nvr/recordings:/data
-      - /mnt/usb3/docker/mini-nvr/cleaner.py:/app/app.py:ro
     restart: unless-stopped
 
   mini_nvr_web:
