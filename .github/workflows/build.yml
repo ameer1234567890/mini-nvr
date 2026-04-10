@@ -39,6 +39,7 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v7
+        context: .
         file: ./Dockerfile_recorder
         with:
           platforms: linux/amd64,linux/arm64
@@ -72,6 +73,7 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v7
+        context: .
         file: ./Dockerfile_cleaner
         with:
           platforms: linux/amd64,linux/arm64
