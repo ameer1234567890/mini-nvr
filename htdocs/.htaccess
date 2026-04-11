@@ -8,4 +8,5 @@ AddType video/x-matroska mkv
 
 # Allowing indexes
 Options +Indexes -FollowSymlinks -ExecCGI
+IndexStyleSheet "/css/indexstyle.css"
 ServerSignature Off

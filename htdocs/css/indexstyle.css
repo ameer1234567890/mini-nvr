@@ -1,0 +1,7 @@
+body { background-color: #1a1a1a; color: #e0e0e0; }
+a { color: #4fa3ff; }
+a:visited { color: #a085ff; }
+table { width: 100%; }
+th, td { text-align: left; padding: 5px; }
+th { background-color: #333; }
+tr:hover { background-color: #262626; }
