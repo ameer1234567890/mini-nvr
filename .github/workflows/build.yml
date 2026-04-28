@@ -1,5 +1,4 @@
 name: Build Docker Container
-runs-on: self-hosted
 
 on:
   push:
@@ -13,7 +12,7 @@ on:
         default: 'latest'
 jobs:
   docker-recorder:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       -
         name: Check out
@@ -46,7 +45,7 @@ jobs:
           push: true
           tags: ${{ github.event.inputs.tags || steps.meta.outputs.tags }}
   docker-cleaner:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       -
         name: Check out
@@ -79,7 +78,7 @@ jobs:
           push: true
           tags: ${{ github.event.inputs.tags || steps.meta.outputs.tags }}
   docker-web:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       -
         name: Check out
